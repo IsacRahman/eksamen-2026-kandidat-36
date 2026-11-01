@@ -17,8 +17,10 @@ public class AwsConfig {
     }
 
     @Bean
-    public RekognitionClient rekognitionClient(@Value("${aws.region}") String region) {
-        return RekognitionClient.builder().region(Region.of(region)).build();
+    public RekognitionClient rekognitionClient() {
+        return RekognitionClient.builder()
+                .region(Region.EU_WEST_1)
+                .build();
     }
 
     @Bean
