@@ -30,6 +30,10 @@ Jeg kan følge byggingene og deployene her:
 
 https://github.com/IsacRahman/eksamen-2026-kandidat-36/actions
 
+Her er siste vellykede GitHub Actions-kjøring av den endelig versjonen:
+
+https://github.com/IsacRahman/eksamen-2026-kandidat-36/actions/runs/42662236202
+
 Oppgave 2 – ECS Express og Terraform
 
 2A – Infrastruktur som kode
