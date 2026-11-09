@@ -129,23 +129,6 @@ resource "aws_cloudwatch_dashboard" "wishifai" {
             }
           }
         }
-      },
-      {
-        type   = "metric"
-        x      = 12
-        y      = 18
-        width  = 12
-        height = 6
-        properties = {
-          title  = "Successful Wishifai API Requests"
-          region = var.aws_region
-          metrics = [
-            ["Wishifai", "http.server.requests.count", "method", "POST", "uri", "/api/analyze"]
-          ]
-          period = 60
-          stat   = "Sum"
-          view   = "timeSeries"
-        }
       }
     ]
   })
