@@ -105,6 +105,47 @@ resource "aws_cloudwatch_dashboard" "wishifai" {
           stat   = "Average"
           view   = "timeSeries"
         }
+      },
+      {
+        type   = "metric"
+        x      = 0
+        y      = 18
+        width  = 12
+        height = 6
+        properties = {
+          title  = "JVM Heap Memory Used"
+          region = var.aws_region
+          metrics = [
+            ["Wishifai", "jvm.memory.used.value", "area", "heap", "id", "G1 Old Gen"],
+            ["...", "jvm.memory.used.value", "area", "heap", "id", "G1 Eden Space"],
+            ["...", "jvm.memory.used.value", "area", "heap", "id", "G1 Survivor Space"]
+          ]
+          period = 60
+          stat   = "Average"
+          view   = "timeSeries"
+          yAxis = {
+            left = {
+              label = "Bytes"
+            }
+          }
+        }
+      },
+      {
+        type   = "metric"
+        x      = 12
+        y      = 18
+        width  = 12
+        height = 6
+        properties = {
+          title  = "Successful Wishifai API Requests"
+          region = var.aws_region
+          metrics = [
+            ["Wishifai", "http.server.requests.count", "method", "POST", "uri", "/api/analyze", "status", "200"]
+          ]
+          period = 60
+          stat   = "Sum"
+          view   = "timeSeries"
+        }
       }
     ]
   })
